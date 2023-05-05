@@ -23,7 +23,7 @@ pipeline {
         stage ('Testing Stage') {
            when {
              expression {
-                        params.executeTests = true
+                params.executeTests = true
              }
            }
            steps {
