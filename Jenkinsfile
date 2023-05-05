@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+        BRANCH_NAME == 'main'
         SERVER_CREDENTIALS = credentials('agent-credentials')
     }
 
