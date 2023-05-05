@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         SERVER_CREDENTIALS = credentials('agent-credentials')
-
     }
 
     stages {
@@ -31,9 +30,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-            withCredentials([usernamePassword(credentials: 'agent-credentials', usernameVariable: USER, passwordVariable: PWD)])
                 withMaven(maven : 'maven_3_6_3') {
-                    echo "Deploy is in progress with ${USER} ${PWD}"
                     sh 'mvn deploy'
                 }
             }
