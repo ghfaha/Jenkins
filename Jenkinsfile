@@ -21,17 +21,17 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-      //          when {
-      //              expression {
-       //                 params.executeTests = true
-       //             }
-      //          }
-                steps {
-                    withMaven(maven : 'maven_3_6_3') {
-                    echo " this should be done to ${params.executeTests}"
-                        sh 'mvn test'
-                    }
-                }
+           when {
+             expression {
+                        params.executeTests = true
+             }
+           }
+           steps {
+              withMaven(maven : 'maven_3_6_3') {
+                echo " this should be done to ${params.executeTests}"
+                sh 'mvn test'
+              }
+           }
         }
 
 
