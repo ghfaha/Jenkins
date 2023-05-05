@@ -9,7 +9,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
+                withMaven(maven : 'maven_3_6_3') {
                     sh 'mvn clean compile'
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
                     }
                 }
                 steps {
-                    withMaven(maven : 'maven_3_5_0') {
+                    withMaven(maven : 'maven_3_6_3') {
                         sh 'mvn test'
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
             withCredentials([usernamePassword(credentials: 'agent-credentials', usernameVariable: USER, passwordVariable: PWD)])
-                withMaven(maven : 'maven_3_5_0') {
+                withMaven(maven : 'maven_3_6_3') {
                     echo "Deploy is in progress with ${USER} ${PWD}"
                     sh 'mvn deploy'
                 }
