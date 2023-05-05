@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        NEW_VERSION = ''
         SERVER_CREDENTIALS = credentials('agent-credentials')
 
     }
@@ -10,7 +9,6 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                echo "Building version ${NEW_VERSION}"
                 withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean compile'
                 }
