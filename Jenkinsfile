@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        BRANCH_NAME == 'main'
-        SERVER_CREDENTIALS = credentials('agent-credentials')
+
+ //       SERVER_CREDENTIALS = credentials('agent-credentials')
     }
 
     stages {
@@ -16,11 +16,11 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-                when{
-                    expression{
-                        BRANCH_NAME == 'main'
-                    }
-                }
+  //              when{
+   //                 expression{
+   //                     BRANCH_NAME == 'main'
+    //                }
+    //            }
                 steps {
                     withMaven(maven : 'maven_3_6_3') {
                         sh 'mvn test'
