@@ -21,8 +21,8 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-                when{
-                    expression{
+                when {
+                    expression {
                         params.executeTests = true
                     }
                 }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 withMaven(maven : 'maven_3_6_3') {
 //                    sh 'mvn deploy'
-                      echo "Deploy complete ${VERSION}"
+                      echo "Deploy complete ${params.VERSION}"
                 }
             }
         }
