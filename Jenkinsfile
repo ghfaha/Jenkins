@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
     parameters {
@@ -11,11 +12,17 @@ pipeline {
   //  }
 
     stages {
+        stage ("initialize") {
+            steps {
+                script {
+                 gv = load "script.groovy"
+                }
+            }
+        }
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_6_3') {
-                    sh 'mvn clean compile'
+                gv.buildApp()
                 }
             }
         }
@@ -27,19 +34,19 @@ pipeline {
                 }
            }
            steps {
-               withMaven(maven : 'maven_3_6_3') {
-                   echo " this should be done to ${params.executeTests}"
-                   sh 'mvn test'
-              }
+               script {
+                   gv.testApp()
+               }
            }
         }
 
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_6_3') {
-//                    sh 'mvn deploy'
-                      echo "Deploy complete ${params.VERSION}"
+               script {
+                   gv.deployApp()
+               }
+
                 }
             }
         }
