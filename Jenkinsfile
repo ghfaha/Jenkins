@@ -28,8 +28,8 @@ pipeline {
            }
            steps {
                withMaven(maven : 'maven_3_6_3') {
-                    echo " this should be done to ${params.executeTests}"
-                    sh 'mvn test'
+                   echo " this should be done to ${params.executeTests}"
+                   sh 'mvn test'
               }
            }
         }
