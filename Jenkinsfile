@@ -47,9 +47,9 @@ pipeline {
                    gv.deployApp()
                }
 
-                }
             }
         }
     }
+
 
 }
