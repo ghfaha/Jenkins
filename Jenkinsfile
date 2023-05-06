@@ -40,7 +40,6 @@ pipeline {
            }
         }
 
-
         stage ('Deployment Stage') {
             steps {
                script {
@@ -50,6 +49,4 @@ pipeline {
             }
         }
     }
-
-
 }
