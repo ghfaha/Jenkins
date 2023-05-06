@@ -19,4 +19,3 @@ def deployApp() {
 //        echo "Deploy complete ${params.VERSION}"
     }
 
-}
