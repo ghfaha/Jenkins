@@ -18,6 +18,6 @@ def deployApp() {
         echo "The deploy stage has been successfuly finished"
         echo "Deploy complete ${params.VERSION}"
     }
-
-return this
 }
+return this
+
