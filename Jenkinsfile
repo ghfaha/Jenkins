@@ -46,6 +46,8 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
+               input message: 'confirm deployment to production',
+                ok: "Deploy".
                script {
                    gv.deployApp()
                }
