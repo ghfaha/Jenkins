@@ -6,6 +6,9 @@ pipeline {
         choice (name: 'ENVIRONMENT', choices: ['DEVELOPMENT', 'STAGING', 'PRODUCTION'], 
          description: 'Choose the environment for this deployment.')         
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
+        text (name: 'CHANGELOG', defaultValue: 'This is the change log.', 
+         description: 'Enter the components that were changed in this deployment.')
+         
 
     }
  //   environment {
@@ -55,6 +58,17 @@ pipeline {
                    gv.deployApp()
                }
 
+            }
+        }
+        stage('Report') {
+            steps {
+                echo "This stage generates a report"
+                sh "printf \"${params.CHANGELOG}\" > ${params.ENVIRONMENT}.txt"
+                archiveArtifacts allowEmptyArchive: true, 
+                    artifacts: '*.txt', 
+                    fingerprint: true, 
+                    followSymlinks: false, 
+                    onlyIfSuccessful: true
             }
         }
     }
