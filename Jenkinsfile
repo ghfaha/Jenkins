@@ -47,6 +47,7 @@ pipeline {
         }
 
         stage ('Deployment Stage') {
+            when { expression { params.ENVIRONMENT == "PRODUCTION" } }  
             steps {
                input message: "confirm deployment to production",
                 ok: "Deploy"
