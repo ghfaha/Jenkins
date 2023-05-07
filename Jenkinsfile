@@ -17,6 +17,7 @@ pipeline {
                 script {
                     gv = load "script.groovy"
                 }
+                archiveArtifacts allowEmptyArchive: true, artifacts: '', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
         }
 
@@ -25,6 +26,7 @@ pipeline {
                 script {
                     gv.buildApp()
                 }
+                archiveArtifacts allowEmptyArchive: true, artifacts: '', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
         }
 
@@ -38,6 +40,7 @@ pipeline {
                script {
                    gv.testApp()
                }
+               archiveArtifacts allowEmptyArchive: true, artifacts: '', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
            }
         }
 
