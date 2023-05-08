@@ -13,10 +13,8 @@ def testApp(){
 }
 
 def deployApp() {
-    withMaven(maven : 'maven_3_6_3') {
-      sh 'mvn deploy'
         echo "The deploy stage has been successfuly finished"
-        echo "Deploy complete ${params.VERSION}"
-    }
-
+        echo "Deploy complete ${params.VERSION}"  
+}
 return this
+
