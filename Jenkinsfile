@@ -45,7 +45,6 @@ pipeline {
                script {
                    gv.testApp()
                }
-//               archiveArtifacts allowEmptyArchive: true, artifacts: '', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
            }
         }
 
