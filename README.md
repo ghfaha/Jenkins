@@ -1,5 +1,5 @@
 
-[![Build Status](http://3.98.95.104:8080/buildStatus/icon?job=pipeline-jenkins-example)](http://3.98.95.104:8080/job/pipeline-jenkins-example/)
+//[![Build Status](http://3.98.95.104:8080/buildStatus/icon?job=pipeline-jenkins-example)](http://3.98.95.104:8080/job/pipeline-jenkins-example/)
 ## Fizz Buzz Example in Java 8 using JUnit 5
 
 ### Fizz Buzz is a game where
