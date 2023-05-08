@@ -1,5 +1,5 @@
 
-<a href='http://192.168.2.23:8080/job/pipeline-jenkins-example/'><img src='http://192.168.2.23:8080/buildStatus/icon?job=pipeline-jenkins-example'></a>
+http://3.98.95.104:8080/buildStatus/icon?job=pipeline-jenkins-example
 ## Fizz Buzz Example in Java 8 using JUnit 5
 
 ### Fizz Buzz is a game where
